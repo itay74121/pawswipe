@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import RootReducer from './reducers';
+import { configureStore } from '@reduxjs/toolkit';
+
+const store = configureStore({
+  reducer: RootReducer,
+  devTools: process.env.NODE_ENV !== 'production'
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Squada+One"></link>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
