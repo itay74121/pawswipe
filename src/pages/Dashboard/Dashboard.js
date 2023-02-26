@@ -4,6 +4,8 @@ import {Space} from "../../components/Space.js"
 // @flow
 import * as React from 'react';
 import Card from "./components/Card";
+import testdata from "./testdata.json"
+
 type Props = {
   
 };
@@ -17,18 +19,12 @@ export function Dashboard(props: Props) {
         filter:"brightness(0%)"
       }}
       src={paw}/>
-
-      React.useEffect(() => {
-        function handleScroll() {
-          window.scrollTo(0, 0);
-        }
-    
-        window.addEventListener('scroll', handleScroll);
-    
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
-      }, []);
+      let cards = testdata.urls.map(url=>{
+        return <Card data={[<img style={{
+          width:"100%",
+          height:"auto"
+        }} src={url}/>]}/>
+      })
 
   return (
     <div className="Dashboard">
@@ -36,18 +32,7 @@ export function Dashboard(props: Props) {
       className="dashboard-navbar"
       inner={[logo]}
       />
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>my</div>]}/>
-      <Card data={[<div>life</div>]}/>
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>fuck</div>]}/>
-      <Card data={[<div>please</div>]}/>
+      {cards}
     </div>
   );
 };
