@@ -17,6 +17,9 @@ root.render(
   <React.StrictMode>
     <link rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Squada+One"></link>
+      <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Staatliches"></link>
+
     <Provider store={store}>
       <App />
     </Provider>

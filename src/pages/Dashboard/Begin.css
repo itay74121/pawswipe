@@ -1,0 +1,61 @@
+.Begin{
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: #d1eef6;
+    touch-action: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.intro-header{
+    position: absolute;
+    font-family: "Staatliches";
+    font-size: 30px;
+    top: 15%;
+}
+.bottom-index{
+    position: absolute;
+    height: 4vh;
+    width: 95%;
+    top: 85vh;
+    border-radius: 15px;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom-index > * {
+    margin: 30px;
+}
+.dot{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+}
+
+.intro-user-input{
+    position: relative;
+    width: 75%;
+    height: 10%;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 15px;
+    border-width: 0px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.301);
+    outline: none;
+    margin: 15px;
+  }
+.scroller{
+    position: absolute;
+    top: 30%;
+    height: 50%;
+    width: 98%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.317);
+    border-radius: 5px;
+}

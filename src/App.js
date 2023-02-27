@@ -9,7 +9,7 @@ import { Register } from "./pages/Register/Register";
 
 export default function App() {
   let dashboard = useRef(null)
-  dashboard = <Dashboard/>
+  dashboard = <Begin/>
   return (
     <BrowserRouter>
       <Routes>
