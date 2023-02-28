@@ -9,11 +9,11 @@ function Card({ data }) {
   const [previousTranslate, setPreviousTranslate] = useState({ x: 0, y: 0 });
   const cardsRef = useRef([]);
   useEffect(() => {
-    if (currentTranslate.x > 150 && currentTranslate.x < 500) {
+    if (currentTranslate.x > 250 && currentTranslate.x < 500) {
       handleSwipe("right");
       console.log("right");
     }
-    if (currentTranslate.x < -150 && currentTranslate.x > -500) {
+    if (currentTranslate.x < -250 && currentTranslate.x > -500) {
       handleSwipe("left");
       console.log("left");
     }
@@ -65,7 +65,7 @@ function Card({ data }) {
         x: (previousTranslate.x + currentPosition.x - startPosition.x)*1.2,
         y: (previousTranslate.y + currentPosition.y - startPosition.y)*1.2,
       });
-      cardsRef.current[currentCardIndex].style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px)`;
+      cardsRef.current[currentCardIndex].style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) rotate(${30*-1*(currentTranslate.x/300)}deg)`;
     }
   }
   function handleSwipe(direction) {

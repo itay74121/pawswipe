@@ -8,8 +8,12 @@ import { Register } from "./pages/Register/Register";
 
 
 export default function App() {
+   const [begin,setBegin] = useState(true)
+   /*Send a request to see wether 
+   the user is a beginer or not.
+   preferably use axios.*/
   let dashboard = useRef(null)
-  dashboard = <Dashboard/>
+  dashboard = (begin)? <Begin setBegin={setBegin}/> :<Dashboard/>
   return (
     <BrowserRouter>
       <Routes>

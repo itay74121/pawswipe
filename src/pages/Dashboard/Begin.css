@@ -59,3 +59,17 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.317);
     border-radius: 5px;
 }
+.begin-continue-button{
+    position: absolute;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Staatliches";
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+    font-size: 22px;
+}
+.begin-continue-button:active{
+    background-image: linear-gradient(62deg, #80b2e3 0%, #c4aadc 100%);
+}

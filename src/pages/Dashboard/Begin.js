@@ -6,7 +6,7 @@ import { Space } from '../../components/Space';
 import { TextSpace } from '../../components/TextSpace';
 
 type Props = {
-  
+  setBegin:Function
 };
 
 export function Begin(props: Props) {
@@ -62,7 +62,7 @@ export function Begin(props: Props) {
           x: previousTranslate.x + dx,
           y: previousTranslate.y + dy,
         });
-        let sign = draggingpositon.x >= 0 ? "+" : "-";
+        let sign = draggingpositon.x >= 0 ? "-" : "+";
         let margin = 250
         console.log(draggingpositon.x)
         if (draggingpositon.x>margin || draggingpositon.x < -1*margin)
@@ -133,6 +133,18 @@ export function Begin(props: Props) {
     className="bottom-index"
     inner={dots}
     />
+    {index === 3 &&
+    <Space
+    width="30vw"
+    height="5vh"
+    top="90vh"
+    left="60vw"
+    className="begin-continue-button"
+    OnClick={(e)=>{
+      props.setBegin(false)
+    }}
+    inner={[<a>continue</a>]}
+    />}
     </div>
   );
 };
