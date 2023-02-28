@@ -26,7 +26,7 @@ export function Dashboard(props: Props) {
         height:"100%",
         width:"auto",
         mixBlendMode:"darken",
-        filter:"initial"
+        filter:"none"
       }}
       src={chaticon}
     />
