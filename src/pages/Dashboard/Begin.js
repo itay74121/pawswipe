@@ -42,10 +42,16 @@ export function Begin(props: Props) {
     src={paw}/>
     const ontouchstart = (e)=>{
         inputref.current.style.transition = "";
-        const x = e.touches[0].clientX;
-        const y = e.touches[0].clientY;
-        setStartTouch({x:x,y:y})
-        setIsDragging(true)
+        try {
+          const x = e.touches[0].clientX;
+          const y = e.touches[0].clientY;
+          setStartTouch({x:x,y:y})
+          setIsDragging(true)
+        }
+        catch{
+          return
+        }
+
     }
     const onDrag = (e) => {
         if (!isDragging) {
@@ -64,7 +70,6 @@ export function Begin(props: Props) {
         });
         let sign = draggingpositon.x >= 0 ? "-" : "+";
         let margin = 250
-        console.log(draggingpositon.x)
         if (draggingpositon.x>margin || draggingpositon.x < -1*margin)
         {
             setDirection(sign==="+")
@@ -133,7 +138,7 @@ export function Begin(props: Props) {
     className="bottom-index"
     inner={dots}
     />
-    {index === 2 &&
+    {index === 3 &&
     <Space
     width="30vw"
     height="5vh"
