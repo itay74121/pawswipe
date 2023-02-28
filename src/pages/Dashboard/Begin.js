@@ -133,7 +133,7 @@ export function Begin(props: Props) {
     className="bottom-index"
     inner={dots}
     />
-    {index === 3 &&
+    {index === 2 &&
     <Space
     width="30vw"
     height="5vh"
