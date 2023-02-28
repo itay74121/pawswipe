@@ -25,8 +25,8 @@ export function Dashboard(props: Props) {
       style={{
         height:"100%",
         width:"auto",
-        mixBlendMode:"darken",
-        filter:"none"
+        mixBlendMode:"color-burn",
+        filter:"sepia"
       }}
       src={chaticon}
     />
