@@ -43,7 +43,11 @@ export function Dashboard(props: Props) {
       let cards = testdata.urls.map(url=>{
         return <Card data={[<img style={{
           width:"100%",
-          height:"auto"
+          height:"90%",
+          position:"absolute",
+          borderRadius:"5px",
+          boxShadow:"0 0.5px 3px black",
+          top:"0%"
         }} src={url}/>]}/>
       })
 

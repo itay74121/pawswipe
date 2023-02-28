@@ -142,8 +142,8 @@ export function Begin(props: Props) {
     <Space
     width="30vw"
     height="5vh"
-    top="90vh"
-    left="60vw"
+    top="80vh"
+    left="35vw"
     className="begin-continue-button"
     OnClick={(e)=>{
       props.setBegin(false)
