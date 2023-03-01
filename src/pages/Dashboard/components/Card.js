@@ -65,7 +65,8 @@ function Card({ data }) {
         x: (previousTranslate.x + currentPosition.x - startPosition.x)*1.2,
         y: (previousTranslate.y + currentPosition.y - startPosition.y)*1.2,
       });
-      cardsRef.current[currentCardIndex].style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) rotate(${30*-1*(currentTranslate.x/300)}deg)`;
+      let margin = window.innerWidth*0.65
+      cardsRef.current[currentCardIndex].style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px) rotate(${30*-1*(currentTranslate.x/margin)}deg)`;
     }
   }
   function handleSwipe(direction) {

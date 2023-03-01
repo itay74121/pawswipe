@@ -1,9 +1,9 @@
-// @flow
 import {useRef, useState} from "react"
 import "./Begin.css"
 import paw from "../../paw.png"
 import { Space } from '../../components/Space';
 import { TextSpace } from '../../components/TextSpace';
+import AgeRuler from "./components/AgeRuler";
 
 type Props = {
   setBegin:Function
@@ -18,18 +18,33 @@ export function Begin(props: Props) {
     const [direction,setDirection] = useState(null)
     let inputref = useRef(null)
     const fields = [
-        [{ name: 'DogName', type: 'text', required: true }],
-        [{ name: 'Country', type: 'text', required: true }],
+        [{ name: 'DogName', type: 'text', required: true }, /*Questions about the dog */
+         {name:'Nickname',type:'text',required:true},
+         { name: 'Dog age', type: 'Number', required: true },
+         { name: 'City', type: 'text', required: true },
+         { name: 'Bio', type: 'bio', required: true }],
+        [{ name: 'Age', type: 'ruler', required: true }], /*Dog prefrences*/
         [{ name: 'City', type: 'text', required: true }],
         [{ name: 'Lifestyle', type: 'text', required: true }],
       ][index].map((e)=>{
+        if (e.type === 'ruler'){
+          return(
+          <div 
+          id="age-ruler"
+          className="age-ruler">
+            <AgeRuler />
+            <AgeRuler />
+          </div>
+          )
+        }
         return <TextSpace 
-        height=""
+        height={""+e.type==="bio"?"30%":""}
         width=""
         top=""
         left=""
         placeholder={e.name}
-        className="intro-user-input"/>
+        className={"intro-user-input"} 
+        multiline={e.type==="bio"}/>
       })
     let logo = <img 
     style={{
@@ -41,6 +56,7 @@ export function Begin(props: Props) {
     }}
     src={paw}/>
     const ontouchstart = (e)=>{
+        if(e.target.className==="age-ruler" || e.target.className === "age-range") return
         inputref.current.style.transition = "";
         try {
           const x = e.touches[0].clientX;
@@ -69,10 +85,13 @@ export function Begin(props: Props) {
           y: previousTranslate.y + dy,
         });
         let sign = draggingpositon.x >= 0 ? "-" : "+";
-        let margin = 250
+        let margin = window.innerWidth*0.5
         if (draggingpositon.x>margin || draggingpositon.x < -1*margin)
         {
             setDirection(sign==="+")
+        }
+        else{
+          setDirection(null)
         }
         inputref.current.style.transform = `translate(${draggingpositon.x}px, ${draggingpositon.y}px)`;
         // inputref.current.style.transition = "transform 0.09s ease-in-out, rotate 0.09s ease-in-out";

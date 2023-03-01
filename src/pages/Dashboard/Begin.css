@@ -58,6 +58,10 @@
     width: 98%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.317);
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .begin-continue-button{
     position: absolute;
@@ -72,4 +76,10 @@
 }
 .begin-continue-button:active{
     background-image: linear-gradient(62deg, #80b2e3 0%, #c4aadc 100%);
+}
+.bio{
+    width: 75%;
+    height: 10%;
+    resize: vertical;
+    background-color: white;
 }
