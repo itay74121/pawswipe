@@ -52,14 +52,15 @@ const AgeRuler = () => {
             y: event.clientY,
           };
         }
-        let bounderies = (document.getElementById("age-ruler").clientWidth - document.getElementById("marker").clientWidth)/2
+        let bounderies = (document.getElementById("age-ruler").clientWidth - document.getElementById("marker").clientWidth)/2 + 10
         let translate = previousTranslate.x + currentPosition.x - startPosition.x
         if(translate>bounderies || translate < bounderies*-1) return
-        console.log()
+
         setCurrentTranslate({
           x: (previousTranslate.x + currentPosition.x - startPosition.x)*1,
           y: (previousTranslate.y + currentPosition.y - startPosition.y)*0,
         });
+        console.log(currentTranslate.x)
         rulerref.current.style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px)`;
     }
   }
