@@ -1,7 +1,16 @@
-import React, { useState,useRef } from "react";
+import { type } from "@testing-library/user-event/dist/type";
+import React, { useState,useRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./AgeRuler.css"
 
-const AgeRuler = () => {
+type Props = {
+  age:String,
+  minAge: Number,
+  maxNumber:Number
+}
+
+const AgeRuler = (props:Props) => {
+  const dispatch = useDispatch()
   const [minAge, setMinAge] = useState(18);
   const [maxAge, setMaxAge] = useState(60);
   const [isDragging, setIsDragging] = useState(false);
@@ -9,6 +18,15 @@ const AgeRuler = () => {
   const [currentTranslate, setCurrentTranslate] = useState({ x: 0, y: 0 });
   const [previousTranslate, setPreviousTranslate] = useState({ x: 0, y: 0 });
   const rulerref = useRef();
+
+  useEffect(()=>{
+    let margin = (document.getElementById("age-ruler").clientWidth)-20
+    let age = currentTranslate.x
+    console.log(age,age/margin)
+    dispatch({type:"SET",field:props.age,val:age/margin}) 
+  
+  },[currentTranslate.x])
+
   const handleMinAgeChange = (e) => {
     const value = parseInt(e.target.value);
     if (value < maxAge) {
@@ -52,15 +70,14 @@ const AgeRuler = () => {
             y: event.clientY,
           };
         }
-        let bounderies = (document.getElementById("age-ruler").clientWidth - document.getElementById("marker").clientWidth)/2 + 10
+        let bounderies = (document.getElementById("age-ruler").clientWidth - document.getElementById("marker").clientWidth) + 10
         let translate = previousTranslate.x + currentPosition.x - startPosition.x
-        if(translate>bounderies || translate < bounderies*-1) return
+        if(translate<0 || translate > bounderies) return
 
         setCurrentTranslate({
           x: (previousTranslate.x + currentPosition.x - startPosition.x)*1,
           y: (previousTranslate.y + currentPosition.y - startPosition.y)*0,
         });
-        console.log(currentTranslate.x)
         rulerref.current.style.transform = `translate(${currentTranslate.x}px, ${currentTranslate.y}px)`;
     }
   }

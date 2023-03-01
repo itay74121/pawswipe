@@ -11,11 +11,9 @@ function Card({ data }) {
   useEffect(() => {
     if (currentTranslate.x > 250 && currentTranslate.x < 500) {
       handleSwipe("right");
-      console.log("right");
     }
     if (currentTranslate.x < -250 && currentTranslate.x > -500) {
       handleSwipe("left");
-      console.log("left");
     }
   }, [currentTranslate.x, currentTranslate.y]);
   function dragStart(event) {

@@ -4,6 +4,7 @@ import paw from "../../paw.png"
 import { Space } from '../../components/Space';
 import { TextSpace } from '../../components/TextSpace';
 import AgeRuler from "./components/AgeRuler";
+import { useSelector } from "react-redux";
 
 type Props = {
   setBegin:Function
@@ -16,6 +17,9 @@ export function Begin(props: Props) {
     const [previousTranslate, setPreviousTranslate] = useState({ x: 0, y: 0 });
     const [index,setindex] = useState(0)
     const [direction,setDirection] = useState(null)
+    const age1 = useSelector(s=>s.age1)
+    const age2 = useSelector(s=>s.age2)
+
     let inputref = useRef(null)
     const fields = [
         [{ name: 'DogName', type: 'text', required: true }, /*Questions about the dog */
@@ -23,17 +27,25 @@ export function Begin(props: Props) {
          { name: 'Dog age', type: 'Number', required: true },
          { name: 'City', type: 'text', required: true },
          { name: 'Bio', type: 'bio', required: true }],
-        [{ name: 'Age', type: 'ruler', required: true }], /*Dog prefrences*/
+        [ {name:"Age",type:"display-ages", required:true}
+          ,{ name: 'Age', type: 'ruler', required: true }], /*Dog prefrences*/
         [{ name: 'City', type: 'text', required: true }],
         [{ name: 'Lifestyle', type: 'text', required: true }],
       ][index].map((e)=>{
+        if (e.type === 'display-ages')
+        {
+          return( 
+          <div>
+            {Math.round(age1*30)}      {Math.round(age2*30)}
+          </div>)
+        }
         if (e.type === 'ruler'){
           return(
           <div 
           id="age-ruler"
           className="age-ruler">
-            <AgeRuler />
-            <AgeRuler />
+            <AgeRuler age= "age1"/>
+            <AgeRuler age= "age2" />
           </div>
           )
         }
@@ -130,6 +142,15 @@ export function Begin(props: Props) {
         }}
         />
     })
+    let message = ""
+    switch(index){
+      case 0:
+        message = "Lets get to know each other!"
+        break
+      case 1:
+        message = "your dog's prefrences?"
+        break
+    }
     //////////////////////////////////////////////////////
 
   return (
@@ -138,7 +159,7 @@ export function Begin(props: Props) {
       className="dashboard-navbar"
       inner={[logo]}
       />
-      <a className='intro-header' >Lets get to know each other!</a>
+      <a className='intro-header' >{message}</a>
     <div 
         ref={inputref}
         onMouseDown={ontouchstart}
