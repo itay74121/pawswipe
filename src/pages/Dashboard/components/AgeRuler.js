@@ -22,7 +22,6 @@ const AgeRuler = (props:Props) => {
   useEffect(()=>{
     let margin = (document.getElementById("age-ruler").clientWidth)-20
     let age = currentTranslate.x
-    console.log(age,age/margin)
     dispatch({type:"SET",field:props.age,val:age/margin}) 
   
   },[currentTranslate.x])

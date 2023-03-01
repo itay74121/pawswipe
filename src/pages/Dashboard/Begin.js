@@ -34,9 +34,16 @@ export function Begin(props: Props) {
       ][index].map((e)=>{
         if (e.type === 'display-ages')
         {
+          let min = Math.min(Math.round(age1 * 30), Math.round(age2 * 30));
+          let max = Math.max(Math.round(age1 * 30), Math.round(age2 * 30));
           return( 
-          <div>
-            {Math.round(age1*30)}      {Math.round(age2*30)}
+          <div style={{
+            flexDirection:"row",
+            marginBottom:"15px",
+            width:"75%"
+          }}>
+            <a className="age-label" style={{marginRight:"80%"}}>{min}</a>
+            <a className="age-label" >{max}</a>  
           </div>)
         }
         if (e.type === 'ruler'){
