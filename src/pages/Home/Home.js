@@ -8,8 +8,13 @@ function Home() {
   let logintext = <a className='logintext'>Login</a>
   let registertext = <a className='registertext'>Register</a> 
   let nav = useNavigate()
+  const addressBarHeight = window.innerHeight - document.documentElement.clientHeight;
   return (
-    <div className="Home">
+    <div 
+    style={{
+      height:document.documentElement.clientHeight
+    }}
+    className="Home">
       <Space 
       height="43%"
       width="90%" 

@@ -11,7 +11,11 @@ export function Login(props: Props) {
     let nav = useNavigate()
     let logintext = <a className='logintext'>Login</a>
   return (
-    <div className='Login'>
+    <div 
+    style={{
+      height:document.documentElement.clientHeight
+    }}
+    className='Login'>
         <Space
           height="7%"
           width="80%" 

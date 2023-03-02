@@ -52,7 +52,11 @@ export function Dashboard(props: Props) {
       })
 
   return (
-    <div className="Dashboard">
+    <div 
+    style={{
+      height:document.documentElement.clientHeight
+    }}
+    className="Dashboard">
       <Space 
       className="dashboard-navbar"
       inner={[logo]}

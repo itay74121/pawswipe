@@ -25,7 +25,11 @@ export function Register(props: Props) {
       });
       
   return (
-    <div className='Register'>
+    <div 
+    style={{
+      height:document.documentElement.clientHeight
+    }}
+    className='Register'>
         <Space
           height="7%"
           width="80%" 
