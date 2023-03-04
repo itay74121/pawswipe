@@ -5,7 +5,7 @@ import { Space } from '../../components/Space';
 import { TextSpace } from '../../components/TextSpace';
 import AgeRuler from "./components/AgeRuler";
 import { useSelector } from "react-redux";
-import { Beginmap } from "./BeginUtils";
+import { agesLookingFor, Beginmap, defaultMap, displayAges, options, ruler } from "./BeginUtils";
 
 type Props = {
   setBegin:Function
@@ -23,17 +23,32 @@ export function Begin(props: Props) {
 
     let inputref = useRef(null)
     const fields = [
-        [{ name: 'DogName', type: 'text', required: true }, /*Questions about the dog */
+        [
+          { name: 'DogName', type: 'text', required: true }, /*Questions about the dog */
          {name:'Nickname',type:'text',required:true},
          { name: 'Dog age', type: 'Number', required: true },
          { name: 'City', type: 'text', required: true },
          { name: 'Bio', type: 'bio', required: true }],
-        [ {name:"Age",type:"display-ages", required:true}
-          ,{ name: 'Age', type: 'ruler', required: true }], /*Dog prefrences*/
+        [ {text:"Age range",type:"label"},
+          {name:"Age",type:"display-ages", required:true}
+          ,{ name: 'Age', type: 'ruler', required: true },
+          {type:"options",label:"gender",onChange:()=>{},options:["male","female","other","all"]}
+          ], /*Dog prefrences*/
         [{ name: 'City', type: 'text', required: true }],
         [{ name: 'Lifestyle', type: 'text', required: true }],
       ][index].map((e)=>{
-        return Beginmap(e,age1,age2)
+        switch (e.type) {
+          case 'display-ages':
+            return displayAges(e,age1,age2)
+          case "ruler":
+            return ruler(e)
+          case "label":
+            return agesLookingFor(e)
+          case "options":
+            return options(e)
+          default:
+            return defaultMap(e)
+        }
       })
     let logo = <img 
     style={{
@@ -157,10 +172,10 @@ export function Begin(props: Props) {
     />
     {index === 3 &&
     <Space
-    width="30vw"
-    height="5vh"
-    top="80vh"
-    left="35vw"
+    width="30%"
+    height="5%"
+    top="83%"
+    left="65%"
     className="begin-continue-button"
     OnClick={(e)=>{
       props.setBegin(false)

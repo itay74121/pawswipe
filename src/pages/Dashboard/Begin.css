@@ -22,7 +22,7 @@
     position: absolute;
     height: 4vh;
     width: 95%;
-    top: 72vh;
+    top: 92%;
     border-radius: 15px;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     flex-direction: row;
@@ -54,7 +54,7 @@
 .scroller{
     position: absolute;
     top: 20%;
-    height: 50%;
+    height: 70%;
     width: 98%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.317);
     border-radius: 5px;
@@ -62,6 +62,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-y: auto;
 }
 .begin-continue-button{
     position: absolute;

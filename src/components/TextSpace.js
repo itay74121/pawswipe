@@ -27,7 +27,6 @@ export function TextSpace(props: Props) {
     return (
       <textarea 
       maxLength={80}
-      cols="60"
       placeholder={props.placeholder}
       className={props.className}
       style={{...props.style,

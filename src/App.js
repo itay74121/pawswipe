@@ -14,6 +14,7 @@ export default function App() {
    preferably use axios.*/
   let dashboard = useRef(null)
   dashboard = (begin)? <Begin setBegin={setBegin}/> :<Dashboard/>
+  console.log("render")
   return (
     <BrowserRouter>
       <Routes>
