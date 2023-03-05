@@ -30,7 +30,9 @@ function GeneralInput({ label, options, onChange }) {
       className="general-input"
       id="option" value={selectedOption} onChange={handleOptionChange}>
         {options.map((option) => (
-          <option key={option} value={option}>
+          <option 
+          className="general-input-option"
+          key={option} value={option}>
             {option}
           </option>
         ))}

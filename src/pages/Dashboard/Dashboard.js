@@ -7,10 +7,12 @@ import Card from "./components/Card";
 import testdata from "./testdata.json"
 import chaticon from "../../chaticon.jpg"
 import profileicon from "../../profileicon.png"
+import { useNavigate } from "react-router-dom";
 type Props = {
   
 };
 export function Dashboard(props: Props) {
+  let nav =useNavigate()
   let logo = <img 
       style={{
         width:"30%",
@@ -28,6 +30,7 @@ export function Dashboard(props: Props) {
         mixBlendMode:"color-burn",
         filter:"sepia"
       }}
+      onClick={(e)=>{nav("/chat")}}
       src={chaticon}
     />
     let profilelogoimg = <img

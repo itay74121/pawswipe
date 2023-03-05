@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Chat } from "./pages/Chat/Chat";
 import { Begin } from "./pages/Dashboard/Begin";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
@@ -22,7 +23,8 @@ export default function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/dashboard" element={dashboard}/>
-     
+        <Route path="/chat" element={<Chat />}/>
+
       </Routes>
     </BrowserRouter>
   );
