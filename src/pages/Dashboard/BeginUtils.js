@@ -1,4 +1,5 @@
 import GeneralInput from "../../components/GeneralInput";
+<<<<<<< HEAD
 import { Space } from "../../components/Space";
 import { TextSpace } from "../../components/TextSpace";
 import AgeRuler from "./components/AgeRuler";
@@ -6,6 +7,13 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+=======
+import { TextSpace } from "../../components/TextSpace";
+import AgeRuler from "./components/AgeRuler";
+
+
+
+>>>>>>> d257d4c7e54b3b14f603fdef58c554db14c5f56c
 
 export function agesLookingFor(e){
   return <a style={
