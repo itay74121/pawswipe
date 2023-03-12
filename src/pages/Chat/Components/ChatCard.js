@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import "./ChatCards.css"
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     image:String,
@@ -9,9 +10,13 @@ type Props = {
 
 };
 export function ChatCard(props: Props) {
+  let nav = useNavigate()
   return (
     <div 
-    className='chat-card'>
+    className='chat-card'
+    onClick={()=>{
+      nav("/openchat")
+    }}>
       <div
       className='image-container'
       >

@@ -5,7 +5,7 @@ import { Space } from '../../components/Space';
 import { TextSpace } from '../../components/TextSpace';
 import AgeRuler from "./components/AgeRuler";
 import { useSelector } from "react-redux";
-import { ageInput, ageruller, agesLookingFor, Beginmap, defaultMap, displayAges, options, ruler } from "./BeginUtils";
+import { ageInput, ageruller, agesLookingFor, Beginmap, defaultMap, displayAges, header, options, ruler } from "./BeginUtils";
 
 type Props = {
   setBegin:Function
@@ -36,11 +36,10 @@ export function Begin(props: Props) {
           {type:"options",label:"Size",onChange:()=>{},options:["S","M","L","XL"]},
           {type:"options",label:"Game",onChange:()=>{},options:["Fetch","Catch","Play Fight","Other","All"]}
           ],
-        [{ name: 'Owner Name', type: 'text', required: true },
-        
-          {type:"age",label:"birthday"}
+        [ {name: 'Owner Name', type: 'text', required: true },
+          {type:"options",label:"gender",onChange:()=>{},options:["male","female","other","all"]},
+          {type:"age",text:"birthday"}
         ],
-        [{ name: 'Lifestyle', type: 'text', required: true }],
       ][index].map((e)=>{
         switch (e.type) {
           case 'display-ages':
@@ -53,10 +52,15 @@ export function Begin(props: Props) {
             return options(e)
           case "age":
             return ageInput(e)
+          case "header":
+            console.log("here")
+            return header(e)
           default:
             return defaultMap(e)
         }
       })
+
+
     let logo = <img 
     style={{
       width:"30%",
@@ -123,17 +127,20 @@ export function Begin(props: Props) {
         }
         if(direction!=null && direction === true)
         {
-            setindex(index=>mod(index+1,4))
+            setindex(index=>mod(index+1,3))
         }
         if(direction!=null && direction === false)
         {
-            setindex(index=>mod(index-1,4))
+            setindex(index=>mod(index-1,3))
         }
     }
-    let dots = ["x","x","x","x"].map((x,i)=>{
+    let dots = ["x","x","x"].map((x,i)=>{
         return <Space 
         height="53%"
         width="4.5%"
+        OnClick={()=>{
+          setindex(i)
+        }}
         style={{
             background: (i===index)?"maroon":"white",
             borderRadius:"50%",
@@ -177,7 +184,7 @@ export function Begin(props: Props) {
     className="bottom-index"
     inner={dots}
     />
-    {index === 3 &&
+    {index === 2 &&
     <Space
     width="30%"
     height="5%"

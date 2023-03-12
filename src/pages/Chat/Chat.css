@@ -3,6 +3,7 @@
     width: 100%;
     position: absolute;
     background-color: #d1eef6;
+    touch-action: none;
 }
 
 .Chat-navbar{
@@ -22,7 +23,9 @@
     top: 10%;
     left: 0%;
     background-color: #d1eef6;
-    overflow-y: scroll; /* set overflow property to auto */
+    overflow-y: scroll;
+    touch-action: cross-slide-y;
+     /* set overflow property to auto */
     /* display: flex;
     justify-content: center;
     align-items: center;

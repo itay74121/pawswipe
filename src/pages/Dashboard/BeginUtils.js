@@ -1,5 +1,4 @@
 import GeneralInput from "../../components/GeneralInput";
-<<<<<<< HEAD
 import { Space } from "../../components/Space";
 import { TextSpace } from "../../components/TextSpace";
 import AgeRuler from "./components/AgeRuler";
@@ -7,13 +6,17 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-=======
-import { TextSpace } from "../../components/TextSpace";
-import AgeRuler from "./components/AgeRuler";
 
 
+export function header(e){
+  return <a style={
+    {
+      fontFamily:"Staatliches",
+      fontSize:"18px"
+    }
+  } >{e.text}</a>
+}
 
->>>>>>> d257d4c7e54b3b14f603fdef58c554db14c5f56c
 
 export function agesLookingFor(e){
   return <a style={
@@ -57,14 +60,30 @@ export function ruler(e){
 
 export function ageInput(e){
   return (
-
+    <div style={{
+      marginTop:"9%",
+      width:"100%",
+      display:"flex",
+      alignItems:"center",
+      justifyContent:"center",
+      flexDirection:"column",
+      textAlign:"center"
+    }}>
+    <a style={
+    {
+      fontFamily:"Staatliches",
+      fontSize:"18px"
+    }
+  } >{e.text}</a>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <DemoContainer components={['DatePicker']}>
     <DatePicker 
     sx={{
       "& .MuiOutlinedInput-root": {
         borderWidth: '5px',
         backgroundColor: 'white',
+        height:"30px",
+        textAlign:"center",
+        borderRadius:'50px',
         boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.5)',
         "&:hover": {
           boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.9)',
@@ -81,8 +100,8 @@ export function ageInput(e){
     className="owner-birth"
     label={e.label}
     />
-    </DemoContainer>
     </LocalizationProvider>
+    </div>
   )
 }
 
@@ -112,9 +131,3 @@ export function defaultMap(e){
   multiline={e.type==="bio"}/>
   </div>) 
 }
-
-
-
-
-
-

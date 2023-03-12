@@ -25,7 +25,7 @@ function GeneralInput({ label, options, onChange }) {
       fontFamily:"Staatliches",
       fontSize:"18px"
     }
-  } htmlFor="option" onClick={(e)=>{e.preventDefault()}}>{label}:</label>
+  } htmlFor="option" onClick={(e)=>{e.preventDefault()}}>{label}</label>
       <select 
       className="general-input"
       id="option" value={selectedOption} onChange={handleOptionChange}>
