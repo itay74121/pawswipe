@@ -21,6 +21,8 @@
     margin: 15px;
     margin-top: 15px;
     overflow: hidden;
+    padding-left: 11px;
+    padding-right: 11px;
 }
 .incoming{
     float: left;
