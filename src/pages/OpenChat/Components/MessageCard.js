@@ -1,15 +1,15 @@
 // @flow
 import * as React from 'react';
 import  "./MessageCard.css"
-
+import {textlinefixes} from "./MessageCardUtil.js"
 type Props = {
   text:String,
   langdir:String,
   direction: Bool
 };
 export function MessageCard(props: Props) {
-  console.log(Math.floor(0.75*document.getElementById("message-container").clientWidth))
-    let c =  props.direction === true? "incoming":"outcoming"
+  const treshhold = Math.floor(0.75*document.getElementById("message-container").clientWidth)
+  let c =  props.direction === true? "incoming":"outcoming"
     c = "bubble " + c
   return (
     <div
@@ -20,7 +20,7 @@ export function MessageCard(props: Props) {
     }}
     className= {c}
     >
-      {props.text}
+      {textlinefixes(props.text,treshhold)}
     </div>
       
     </div>
