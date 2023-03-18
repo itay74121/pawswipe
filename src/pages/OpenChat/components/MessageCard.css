@@ -1,0 +1,12 @@
+.card{
+    height: auto;
+    width: 50%;
+    overflow-x: hidden;
+}
+.text-card{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border-width: 0px;
+    border-radius: 15px;
+}
