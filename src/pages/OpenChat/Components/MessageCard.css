@@ -20,10 +20,19 @@
     box-shadow: 0 0 10px black;
     margin: 15px;
     margin-top: 15px;
+    overflow: hidden;
 }
 .incoming{
     float: left;
 }
 .outcoming{
     float: right;
+}
+.text-style{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-width: 0px;
+    font-size: 22px;
+    touch-action: none;
 }

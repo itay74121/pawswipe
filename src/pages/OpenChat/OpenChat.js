@@ -4,6 +4,7 @@ import "./OpenChat.css"
 import paw from "../../paw.png"
 import { Space } from '../../components/Space';
 import { MessageCard } from './Components/MessageCard';
+import {getdir} from "./Components/MessageCardUtil.js"
 
 type Props = {
     chatnumber:Number
@@ -29,6 +30,7 @@ export function OpenChat(props: Props) {
       inner={[logo]}
       />
     <div
+    id="message-container"
     className='messages-container pool-div'>
       {messages}
     </div>
@@ -56,11 +58,12 @@ export function OpenChat(props: Props) {
     />
 
       <div 
-      onClick={(e)=>{
+      onClick={async (e)=>{
         const input = document.getElementById("text-input")
         const text = input.value
         input.value = ""
-        setmessages(m=>[...m,<MessageCard direction={false} key={Math.random()} text={text}/>])
+        const langdir = await getdir(text)
+        setmessages(m=>[...m,<MessageCard langdir={langdir} direction={false} key={Math.random()} text={text}/>])
         console.log(text)
       }}
       className='send-button'>
