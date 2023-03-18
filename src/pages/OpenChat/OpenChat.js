@@ -3,11 +3,13 @@ import * as React from 'react';
 import "./OpenChat.css"
 import paw from "../../paw.png"
 import { Space } from '../../components/Space';
+import { MessageCard } from './Components/MessageCard';
 
 type Props = {
     chatnumber:Number
 };
 export function OpenChat(props: Props) {
+  const [messages, setmessages] = React.useState([])
     let logo = <img 
     style={{
       width:"30%",
@@ -17,27 +19,27 @@ export function OpenChat(props: Props) {
       filter:"brightness(0%)"
     }}
     src={paw}/>
-
+    /*get the messages*/
+    
   return (
     <div 
-    style={{
-      height:document.documentElement.clientHeight
-    }}
     className="OpenChat">
     <Space 
       className="Chat-navbar"
       inner={[logo]}
       />
     <div
-    style={{
-      top:window.innerHeight-60
-    }}
+    className='messages-container pool-div'>
+      {messages}
+    </div>
+    {/*bottom part */}
+    <div
     className='bottom-chat-input'>
       <Space   
       height="100%"
       width="82%"
       left="2%"
-      top="5%"
+      top="0%"
       style={{
         position:"absolute",
         boxShadow:"0 0 10px rgba(0,0,0,0.5)",
@@ -47,12 +49,21 @@ export function OpenChat(props: Props) {
       className="ff" 
       inner={[ 
       <textarea 
+      id="text-input"
       dir='auto'
       className='chat-input'
       ></textarea>]}
     />
 
-      <div className='send-button'>
+      <div 
+      onClick={(e)=>{
+        const input = document.getElementById("text-input")
+        const text = input.value
+        input.value = ""
+        setmessages(m=>[...m,<MessageCard direction={false} key={Math.random()} text={text}/>])
+        console.log(text)
+      }}
+      className='send-button'>
         send
       </div>
     </div>
