@@ -5,6 +5,7 @@ import { Begin } from "./pages/Dashboard/Begin";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
+import { OpenChat } from "./pages/OpenChat/OpenChat";
 import { Register } from "./pages/Register/Register";
 
 
@@ -24,7 +25,7 @@ export default function App() {
         <Route path="/register" element={<Register />}/>
         <Route path="/dashboard" element={dashboard}/>
         <Route path="/chat" element={<Chat />}/>
-
+        <Route path="/openchat" element={<OpenChat />}/>
       </Routes>
     </BrowserRouter>
   );

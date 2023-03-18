@@ -12,9 +12,6 @@ export function Login(props: Props) {
     let logintext = <a className='logintext'>Login</a>
   return (
     <div 
-    style={{
-      height:document.documentElement.clientHeight
-    }}
     className='Login'>
         <Space
           height="7%"

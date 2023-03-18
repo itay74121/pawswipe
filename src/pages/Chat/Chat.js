@@ -21,12 +21,6 @@ export function Chat(props: Props) {
       filter:"brightness(0%)"
     }}
     src={paw}/>
-<<<<<<< HEAD
-    data.url = data.urls.map(async url=>{
-      return await fetch(url)
-    })
-=======
->>>>>>> d257d4c7e54b3b14f603fdef58c554db14c5f56c
     let chats = data.urls.map(url=>{
       return(
       <ChatCard 
@@ -39,9 +33,6 @@ export function Chat(props: Props) {
 
   return (
     <div 
-    style={{
-      height:document.documentElement.clientHeight
-    }}
     className="Chat">
     <Space 
       className="Chat-navbar"

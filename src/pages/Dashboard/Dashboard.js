@@ -56,9 +56,6 @@ export function Dashboard(props: Props) {
 
   return (
     <div 
-    style={{
-      height:document.documentElement.clientHeight
-    }}
     className="Dashboard">
       <Space 
       className="dashboard-navbar"

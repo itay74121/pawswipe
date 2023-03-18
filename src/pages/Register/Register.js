@@ -26,9 +26,6 @@ export function Register(props: Props) {
       
   return (
     <div 
-    style={{
-      height:document.documentElement.clientHeight
-    }}
     className='Register'>
         <Space
           height="7%"
