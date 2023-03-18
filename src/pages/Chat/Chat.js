@@ -33,9 +33,6 @@ export function Chat(props: Props) {
 
   return (
     <div 
-    style={{
-      height:document.documentElement.clientHeight
-    }}
     className="Chat">
     <Space 
       className="Chat-navbar"

@@ -11,9 +11,6 @@ function Home() {
   const addressBarHeight = window.innerHeight - document.documentElement.clientHeight;
   return (
     <div 
-    style={{
-      height:document.documentElement.clientHeight
-    }}
     className="Home">
       <Space 
       height="43%"
