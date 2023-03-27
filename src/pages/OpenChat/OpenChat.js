@@ -3,8 +3,9 @@ import * as React from 'react';
 import "./OpenChat.css"
 import paw from "../../paw.png"
 import { Space } from '../../components/Space';
-import { MessageCard } from './Components/MessageCard';
-import {getdir} from "./Components/MessageCardUtil.js"
+// import { MessageCard } from './Components/MessageCard';
+import {getdir} from "./components/MessageCardUtil.js"
+import {MessageCard} from "./components/MessageCard.js"
 
 type Props = {
     chatnumber:Number
@@ -61,6 +62,7 @@ export function OpenChat(props: Props) {
       onClick={async (e)=>{
         const input = document.getElementById("text-input")
         const text = input.value
+        if (text === "") return
         input.value = ""
         const langdir = await getdir(text)
         setmessages(m=>[...m,<MessageCard langdir={langdir} direction={false} key={Math.random()} text={text}/>])

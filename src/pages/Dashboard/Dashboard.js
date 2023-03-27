@@ -41,6 +41,7 @@ export function Dashboard(props: Props) {
       mixBlendMode:"difference",
       filter:"none"
     }}
+    onClick={(e)=>{nav("/user")}}
     src={profileicon}
   />
       let cards = testdata.urls.map(url=>{

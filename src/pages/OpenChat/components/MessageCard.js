@@ -1,16 +1,28 @@
-import "./MessageCard.css"
-
 // @flow
 import * as React from 'react';
+import  "./MessageCard.css"
+import {textlinefixes} from "./MessageCardUtil.js"
 type Props = {
-  message:String
+  text:String,
+  langdir:String,
+  direction: Bool
 };
 export function MessageCard(props: Props) {
+  const treshhold = Math.floor(0.75*document.getElementById("message-container").clientWidth)
+  let c =  props.direction === true? "incoming":"outcoming"
+    c = "bubble " + c
   return (
-    <div className="card">
-      <textarea
-      className="text-card"
-      >{props.message}</textarea>
+    <div
+    className='container'>
+    <div
+    style={{
+      textAlign: props.langdir === "ltr"?"left":"right"
+    }}
+    className= {c}
+    >
+      {textlinefixes(props.text,treshhold)}
+    </div>
+      
     </div>
   );
 };
