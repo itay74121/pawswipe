@@ -17,7 +17,7 @@
     background-color: white;
     border-radius: 5px;
     font-size: 22px;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.518);
     margin: 15px;
     margin-top: 15px;
     overflow: hidden;
@@ -37,4 +37,4 @@
     border-width: 0px;
     font-size: 22px;
     touch-action: none;
-}
+} 
