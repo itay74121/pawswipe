@@ -4,8 +4,8 @@ import "./OpenChat.css"
 import paw from "../../paw.png"
 import { Space } from '../../components/Space';
 // import { MessageCard } from './Components/MessageCard';
-import {getdir} from "./components/MessageCardUtil.js"
-import {MessageCard} from "./components/MessageCard.js"
+import {getdir} from "./Components/MessageCardUtil.js"
+import {MessageCard} from "./Components/MessageCard.js"
 
 type Props = {
     chatnumber:Number
